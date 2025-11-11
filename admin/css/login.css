@@ -1,0 +1,116 @@
+/* ================================== */
+/* 1. Latar Belakang Gambar & Body */
+/* ================================== */
+body {
+    /* Ganti 'your-background-image.jpg' dengan path/nama file gambar Anda */
+    background-image: url('img/your-background-image.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Ini akan memastikan latar belakang menutupi seluruh layar */
+    min-height: 100vh; 
+    display: flex; /* Memastikan konten tengah diatur dengan baik */
+    flex-direction: column;
+}
+
+/* Memastikan konten utama (kartu login) berada di tengah */
+#layoutAuthentication {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#layoutAuthentication_content {
+    flex-grow: 1;
+}
+
+/* ================================== */
+/* 2. Glassmorphism untuk Kartu Login */
+/* ================================== */
+.card {
+    /* Efek Transparansi Glassmorphism */
+    background: rgba(255, 255, 255, 0.15); /* Sangat sedikit warna putih untuk transparan */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px); /* Efek buram pada latar belakang */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff; /* Mengubah teks di dalam kartu menjadi putih */
+}
+
+.card-header, .card-footer {
+    /* Menghilangkan background bawaan Bootstrap */
+    background: transparent; 
+    border-color: rgba(255, 255, 255, 0.2); /* Garis pemisah yang lebih transparan */
+}
+
+/* Mengubah warna teks dan link di dalam kartu */
+.card h3, .card .text-muted, .card a {
+    color: #ffffff !important;
+}
+
+/* ================================== */
+/* 3. Tema Warna Biru Modern & Tombol */
+/* ================================== */
+
+/* Warna biru yang sedikit lebih gelap dan modern */
+:root {
+    --modern-blue: #0077c9; 
+    --modern-blue-dark: #00569a;
+}
+
+/* Mengubah Tombol Primary */
+.btn-primary {
+    background-color: var(--modern-blue);
+    border-color: var(--modern-blue);
+    transition: all 0.3s ease; /* Transisi untuk hover */
+}
+
+.btn-primary:hover {
+    background-color: var(--modern-blue-dark);
+    border-color: var(--modern-blue-dark);
+    /* Sedikit efek shadow untuk modern */
+    box-shadow: 0 4px 8px rgba(0, 119, 201, 0.4); 
+}
+
+/* Mengubah input/label agar terlihat bagus di atas latar belakang transparan */
+.form-floating > .form-control,
+.form-floating > .form-control-plaintext {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.form-floating > label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mengubah placeholder warna saat input fokus */
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 119, 201, 0.5); /* Ring biru modern */
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--modern-blue);
+}
+
+/* Mengubah warna checkbox */
+.form-check-input:checked {
+    background-color: var(--modern-blue);
+    border-color: var(--modern-blue);
+}
+
+/* ================================== */
+/* 4. Footer (Mengikuti Glassmorphism) */
+/* ================================== */
+#layoutAuthentication_footer footer {
+    /* Mengikuti gaya kartu login */
+    background: rgba(255, 255, 255, 0.1) !important; 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+#layoutAuthentication_footer .text-muted, 
+#layoutAuthentication_footer a {
+    color: #ffffff !important;
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Pendaftaran PPDB RPL</title>
+  <link rel="stylesheet" href="css/from.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon"  type="x-icon" href="img/Alfalah.png">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Pendaftaran PPDB</h2>
+
+    <form id="ppdb-form">
+      <!-- Data Calon Siswa -->
+      <div class="form-section">
+        <div class="form-group">
+          <label for="tgl_daftar">Tanggal Pendaftaran</label>
+          <input type="text" id="tgl_daftar" name="tgl_daftar" readonly disabled />
+        </div>
+
+        <!-- Pilih Jurusan (langsung di bawah tanggal, tidak tergantung ortu/wali) -->
+        <div id="bagianJurusan" class="form-section">
+          <label class="section-title">Pilih Jurusan</label>
+          <div class="form-group">
+            <label for="jurusan1">Pilihan Jurusan 1</label>
+            <select id="jurusan1" name="jurusan1" required>
+              <option value="">-- Pilih Jurusan --</option>
+              <option value="RPL">RPL</option>
+              <option value="Mesin">Mesin</option>
+              <option value="Otomotif">Otomotif</option>
+              <option value="Listrik">Listrik</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="jurusan2">Pilihan Jurusan 2 (Opsional)</label>
+            <select id="jurusan2" name="jurusan2">
+              <option value="">-- Pilih Jurusan --</option>
+              <option value="RPL">RPL</option>
+              <option value="Mesin">Mesin</option>
+              <option value="Otomotif">Otomotif</option>
+              <option value="Listrik">Listrik</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-title" style="margin-top: 0">
+          Identitas Calon Siswa
+        </div>
+        <div class="form-group">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tempat_lahir">Tempat Lahir</label>
+            <input type="text" id="tempat_lahir" name="tempat_lahir" required />
+          </div>
+          <div class="form-group">
+            <label for="tanggal_lahir">Tanggal Lahir</label>
+            <input type="date" id="tanggal_lahir" name="tanggal_lahir" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="anak_ke">Anak Ke</label>
+            <input type="number" id="anak_ke" name="anak_ke" min="1" required />
+          </div>
+          <div class="form-group">
+            <label for="jk">Jenis Kelamin</label>
+            <select id="jk" name="jk" required>
+              <option value="">-- Pilih --</option>
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="alamat">Alamat Lengkap</label>
+          <input type="text" id="alamat" name="alamat" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telepon">Nomor Telepon</label>
+            <input type="text" id="telepon" name="telepon" required />
+          </div>
+          <div class="form-group">
+            <label for="asal_sekolah">Asal Sekolah</label>
+            <input type="text" id="asal_sekolah" name="asal_sekolah" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nisn">NISN</label>
+            <input type="text" id="nisn" name="nisn" required />
+          </div>
+          <div class="form-group">
+            <label for="hobby">Hobby</label>
+            <input type="text" id="hobby" name="hobby" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="citacita">Cita-cita</label>
+            <input type="text" id="citacita" name="citacita" />
+          </div>
+          <div class="form-group">
+            <label for="ukuran_baju">Ukuran Baju</label>
+            <select id="ukuran_baju" name="ukuran_baju" required>
+              <option value="">-- Pilih Ukuran --</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+              <option value="XXXL">XXXL</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pilihan Pengisi -->
+      <div class="form-section">
+        <label for="tipe_pengisi">Pilih Pengisi Data</label>
+        <select id="tipe_pengisi" name="tipe_pengisi" required>
+          <option value="">-- Pilih --</option>
+          <option value="ortu">Orang Tua</option>
+          <option value="wali">Wali</option>
+        </select>
+      </div>
+
+      <!-- Orang Tua -->
+      <div id="bagianOrtu" class="form-section hidden">
+        <div class="form-group">
+          <label for="no_kk">Nomor KK</label>
+          <input type="text" id="no_kk" name="no_kk" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nama_ayah">Nama Ayah</label>
+            <input type="text" id="nama_ayah" name="nama_ayah" required />
+          </div>
+          <div class="form-group">
+            <label for="nama_ibu">Nama Ibu</label>
+            <input type="text" id="nama_ibu" name="nama_ibu" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tempat_lahir_ayah">Tempat Lahir Ayah</label>
+            <input type="text" id="tempat_lahir_ayah" name="tempat_lahir_ayah" required />
+          </div>
+          <div class="form-group">
+            <label for="tanggal_lahir_ayah">Tanggal Lahir Ayah</label>
+            <input type="date" id="tanggal_lahir_ayah" name="tanggal_lahir_ayah" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ktp_ayah">Nomor KTP Ayah</label>
+            <input type="text" id="ktp_ayah" name="ktp_ayah" required />
+          </div>
+          <div class="form-group">
+            <label for="telepon_ayah">Nomor Telepon Ayah</label>
+            <input type="text" id="telepon_ayah" name="telepon_ayah" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
+          <input type="text" id="pekerjaan_ayah" name="pekerjaan_ayah" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tempat_lahir_ibu">Tempat Lahir Ibu</label>
+            <input type="text" id="tempat_lahir_ibu" name="tempat_lahir_ibu" required />
+          </div>
+          <div class="form-group">
+            <label for="tanggal_lahir_ibu">Tanggal Lahir Ibu</label>
+            <input type="date" id="tanggal_lahir_ibu" name="tanggal_lahir_ibu" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ktp_ibu">Nomor KTP Ibu</label>
+            <input type="text" id="ktp_ibu" name="ktp_ibu" required />
+          </div>
+          <div class="form-group">
+            <label for="telepon_ibu">Nomor Telepon Ibu</label>
+            <input type="text" id="telepon_ibu" name="telepon_ibu" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
+          <input type="text" id="pekerjaan_ibu" name="pekerjaan_ibu" required />
+        </div>
+      </div>
+
+      <!-- Bagian Wali -->
+      <div id="bagianWali" class="form-section hidden">
+        <div class="section-title">Identitas Wali</div>
+
+        <div class="form-group">
+          <label for="nama_wali">Nama Wali</label>
+          <input type="text" id="nama_wali" name="nama_wali" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tempat_lahir_wali">Tempat Lahir Wali</label>
+            <input type="text" id="tempat_lahir_wali" name="tempat_lahir_wali" />
+          </div>
+          <div class="form-group">
+            <label for="tanggal_lahir_wali">Tanggal Lahir Wali</label>
+            <input type="date" id="tanggal_lahir_wali" name="tanggal_lahir_wali" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="no_tlp_wali">Nomor Telepon Wali</label>
+            <input type="text" id="no_tlp_wali" name="no_tlp_wali" />
+          </div>
+          <div class="form-group">
+            <label for="pekerjaan_wali">Pekerjaan Wali</label>
+            <input type="text" id="pekerjaan_wali" name="pekerjaan_wali" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ktp_wali">Nomor KTP Wali</label>
+          <input type="text" id="ktp_wali" name="ktp_wali" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Daftar</button>
+    </form>
+  </div>
+  <script src="js/from.js"></script>
+
+</html>

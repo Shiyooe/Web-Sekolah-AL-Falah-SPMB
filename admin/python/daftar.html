@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Pendaftar</title>
+</head>
+<body>
+    <h1>📋 Daftar Peserta Pendaftaran</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama</th>
+                <th>Jenis Kelamin</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Mulai perulangan data di sini #}
+            {% for pendaftar in pendaftar_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td> 
+                <td>**{{ pendaftar.nama }}**</td>
+                <td>{{ pendaftar.jenis_kelamin }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Tidak ada data pendaftar.</td>
+            </tr>
+            {% endfor %}
+            {# Akhir perulangan data #}
+        </tbody>
+    </table>
+    
+</body>
+</html>

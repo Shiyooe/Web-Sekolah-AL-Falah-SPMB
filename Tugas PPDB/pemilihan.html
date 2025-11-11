@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konfirmasi Pendaftaran</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/pemilihan.css">
+    <link rel="icon"  type="x-icon" href="img/Alfalah.png">
+  </head>
+  <body>
+    <div class="container">
+      <h2>Konfirmasi Data Pendaftaran</h2>
+
+      <div class="summary-section">
+        <div class="summary-title">Identitas Calon Siswa</div>
+        <div id="siswa-summary"></div>
+      </div>
+
+      <div class="summary-section">
+        <div class="summary-title">Identitas Orang Tua</div>
+        <div id="ortu-summary"></div>
+      </div>
+
+      <div class="summary-section" id="wali-section" style="display: none">
+        <div class="summary-title">Identitas Wali</div>
+        <div id="wali-summary"></div>
+      </div>
+
+      <div class="action-buttons">
+        <button id="editBtn" class="animated-btn edit-btn">Edit Data</button>
+        <button id="confirmBtn" class="animated-btn confirm-btn">
+          Konfirmasi & Selesai
+        </button>
+      </div>
+    </div>
+
+  <script src="js/pemilihan.js"></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PPDB — Login SMK Al-Falah Bandung Indonesia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../spmb_alfalah/Tugas PPDB/css/sytle.css" />
+  <link rel="icon"  type="x-icon" href="../spmb_alfalah/Tugas PPDB/img/Alfalah.png">
+</head>
+<body>
+  <div class="bg-dekorasi">
+    <span class="c1"></span>
+    <span class="c2"></span>
+    <span class="c3"></span>
+  </div>
+
+  <main class="container" role="main">
+    <section class="panel-info" aria-labelledby="title">
+      <div class="sekolah-title">SMK Al-Falah Bandung Indonesia</div>
+
+      <header>
+        <img src="../spmb_alfalah/Tugas PPDB/img/Alfalah.png" alt="Logo" class="logo">
+        <div>
+          <h1>Portal PPDB SMK 2026</h1>
+          <div class="small">Penerimaan Peserta Didik Baru — Online</div>
+        </div>
+      </header>
+
+      <div class="lead" role="note">
+        Selamat datang. Silakan masuk untuk melanjutkan pendaftaran. Pastikan data akun Anda benar.
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="formtitle">
+      <h2 id="formtitle" style="margin:0 0 14px 0; color:var(--primary)">Login Akun</h2>
+
+      <form id="loginForm" autocomplete="on" novalidate>
+        <div>
+          <label for="identifier">Email / Username</label>
+          <input id="identifier" name="identifier" type="text" inputmode="email" placeholder="contoh@mail.com atau username" required />
+        </div>
+
+        <div>
+          <label for="password">Kata Sandi</label>
+          <div style="display:flex; gap:8px; align-items:center">
+            <input id="password" name="password" type="password" placeholder="Masukkan kata sandi" style="flex:1" required />
+            <button type="button" class="show-pass" id="togglePass" aria-label="Tampilkan kata sandi">Tampilkan</button>
+          </div>
+        </div>
+
+        <div class="meta" style="margin-top:4px">
+          <label style="display:flex; gap:8px; align-items:center; font-weight:500">
+            <input id="remember" type="checkbox" style="width:16px; height:16px" />
+            Ingat saya
+          </label>
+          <a class="muted-link" href="#" onclick="alert('Fitur lupa sandi belum diaktifkan')">Lupa kata sandi?</a>
+        </div>
+
+        <div style="display:flex; gap:12px; margin-top:6px; align-items:center">
+          <button type="submit" class="btn">Masuk</button>
+          <a class="muted-link" href="../spmb_alfalah/Tugas PPDB/daftar.html" style="align-self:center">Daftar baru</a>
+        </div>
+
+        <div id="msg" class="error" role="alert"></div>
+
+        <div class="footer-note">Butuh bantuan? Hubungi panitia PPDB atau kontak resmi sekolah.</div>
+      </form>
+    </section>
+  </main>
+
+  <script src="style.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Online - SMK Al Falah Bandung</title>
+    <link rel="stylesheet" href="css/pembayaran.css">
+    <link rel="icon" type="image/x-icon" href="img/Alfalah.png">
+</head>
+<style>
+    a {
+        text-decoration: none;
+        /* Default: tanpa garis bawah */
+        color: #007bff;
+        /* Teks berwarna biru */
+    }
+</style>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">SMK Al Falah Bandung</div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Informasi Pembayaran -->
+        <div class="section" id="info-pembayaran">
+            <h2>Informasi Pembayaran</h2>
+            <div class="info-pembayaran">
+                <h3>Info Biaya PPDB</h3>
+                <ul>
+                    <li>Biaya Tahun Sekarang: <strong>Rp 3.350.000</strong> Termasuk ⬇️</li>
+                    <li>SPP 2 Bulan: <strong>Rp 400.000</strong></li>
+                    <li>SP (Termasuk Seragam dan Lain-lain): <strong>Rp 1.100.000</strong></li>
+                    <li>Uang Bangunan: <strong>Rp 1.500.000</strong></li>
+                    <li>Uang pendaftaran: <strong>Rp 350.000</strong></li>
+                </ul>
+            </div>
+            <div class="info-pembayaran">
+                <h3>Informasi Seputar SPP Dan Lain-lain</h3>
+                <ul>
+                    <li>Untuk Uang Bangunan Hanya Dibayarkan Sekali di <strong>Awal Masuk Sekolah</strong>,</li>
+                    <li>SPP Dibayarkan Setiap Bulannya Sebesar <strong>Rp 200.000</strong>,</li>
+                    <li>Uang Praktek Dan Uang Ujian Dibayarnya <strong>Pertahun.</strong></li>
+                </ul>
+            </div>
+            <div class="info-pembayaran">
+                <h3>Seputar Pencicilan</h3>
+                <ul>
+                    <li>Kalau Sudah Masuk <strong>Rp 2.000.000</strong>, Jurusan Yang Dipilih Sudah <strong>Pasti
+                            Aman.</strong></li>
+                    <li>Tapi Kalau Baru Masuk <strong>Rp 1.000.000</strong>, Atau Cuma <strong>Rp 500.000</strong>,
+                        Untuk Jurusan Yang di Pilih Masih <strong>Belum Aman.</strong></li>
+                </ul>
+            </div>
+            <div class="info-pembayaran">
+                <h3>Cara Melakukan Pembayaran:</h3>
+                <ul>
+                    <li>Transfer ke rekening sekolah berikut:</li>
+                    <li><strong>Bank BCA: 1234567890 a.n. SMK Al Falah Bandung</strong></li>
+                    <li><strong>Bank Mandiri: 123456789 a.n. SMK Al Falah Bandung</strong></li>
+                    <li>Setelah melakukan transfer, unggah bukti pembayaran di formulir di bawah.</li>
+                    <li>Atau hubungi kami untuk info lebih lanjut.</li>
+                </ul>
+            </div>
+
+            <!-- Tombol WA, Offline, dan Pembayaran Online -->
+            <div class="button-container">
+                <a href="https://wa.me/+6285100972096" target="_blank" class="btn-wa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg    " alt="WhatsApp">
+                    <span>Hubungi WA</span>
+                </a>
+                <a href="selesai.html" class="btn-offline" onclick="setPaymentMethod('offline')">
+                    <!-- Tambahkan onclick -->
+                    <img src="img/offline.jpeg" alt="Offline Payment">
+                    <span>Pembayaran Offline</span>
+                </a>
+                <button class="btn-pembayaran-online" id="toggleFormBtn"> <!-- Ganti anchor menjadi button -->
+                    <img src="img/online_payment.png" alt="Pembayaran Online"> <!-- Gunakan gambar sesuai path Anda -->
+                    <span>Pembayaran Online</span>
+                </button>
+            </div>
+        </div>
+        <div class="section" id="form-pembayaran-section">
+            <h2>Form Pembayaran Online</h2 <p>Gunakan formulir di bawah ini untuk melakukan pembayaran secara online.
+            Mohon unggah bukti pembayaran
+            Anda.</p>
+
+            <div class="form-container" id="pembayaranFormContainer">
+                <form id="pembayaranForm" action="prosesbayar.php" method="POST" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label for="nisn">NISN Calon Siswa *</label>
+                        <input type="number" id="nisn" name="nisn" placeholder="Masukkan NISN" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap *</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama sesuai pendaftaran"
+                            required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tanggal_pembayaran">Tanggal Pembayaran *</label>
+                        <input type="date" id="tanggal_pembayaran" name="tanggal_pembayaran" required readonly />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenis_pembayaran">Jenis Pembayaran *</label>
+                        <select id="jenis_pembayaran" name="jenis_pembayaran" required>
+                            <option value="">-- Pilih Jenis Pembayaran --</option>
+                            <option value="bayar_semua">Bayar Penuh (Rp 3.350.000)</option>
+                            <option value="di_cicil">Bayar Cicilan (Min. Rp 500.000)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="jumlah-container" style="display: none;">
+                        <label for="jumlah_display">Jumlah Pembayaran (Rp)</label>
+                        <input type="text" id="jumlah_display" placeholder="Masukkan jumlah" autocomplete="off" />
+                        <input type="hidden" id="jumlah_asli" name="jumlah_asli" />
+                        <small style="color: #666; font-size: 12px;">Format: 3.350.000 (gunakan titik sebagai pemisah
+                            ribuan)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bukti_pembayaran">Upload Bukti Pembayaran</label>
+                        <div id="uploadContainer"
+                            style="border: 2px dashed #ccc; padding: 20px; text-align: center; border-radius: 8px; cursor: pointer;">
+                            <input type="file" id="bukti_pembayaran" name="bukti_pembayaran"
+                                accept="image/jpeg,image/jpg,image/png" required style="display: none;" />
+                            <p onclick="document.getElementById('bukti_pembayaran').click()">
+                                📁 Klik untuk upload atau drag & drop<br>
+                                <small>Format: JPG, PNG (Max 5MB)</small>
+                            <p>Disarankan kirim juga Buktinya di nomor wa kami +62 851-0097-2096 dan beri tahu Nama
+                                anda.</p>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="submit" class="animated-btn confirm-btn">
+                            💳 Kirim Pembayaran
+                        </button>
+                        <button type="button" class="animated-btn edit-btn" onclick="resetForm()">
+                            🔄 Reset Form
+                        </button>
+                    </div>
+                    <p style="font-size: 12px; color: #666; margin-top: 10px;">
+                        * Pastikan semua data sudah benar sebelum mengirim. Jika ada masalah yg terjadi, silakan hubungi
+                        WA kami.
+                    </p>
+                    <p>📞 +62 851-0097-2096</p>
+
+                </form>
+            </div>
+        </div> <!-- End of form section -->
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" onclick="scrollToTop()">↑</div>
+
+    <script src="js/pembayaran.js"></script>
+</body>
+
+</html>

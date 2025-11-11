@@ -1,0 +1,131 @@
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+  background: linear-gradient(135deg, #e3eafc 0%, #b6d0ff 50%, #f8f9fa 100%);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(0, 87, 184, 0.13);
+  opacity: 0;
+  animation: fadeInContainer 0.6s ease-out forwards;
+}
+@keyframes fadeInContainer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+h2 {
+  text-align: center;
+  color: #0057b8;
+  margin-bottom: 30px;
+}
+.summary-section {
+  margin-bottom: 25px;
+}
+.summary-title {
+  font-size: 1.2rem;
+  color: #3a8dde;
+  font-weight: 700;
+  border-bottom: 1px solid #e3eafc;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f4ff;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInItem 0.5s ease-out forwards;
+}
+@keyframes slideInItem {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.summary-item label {
+  font-weight: 600;
+  color: #0057b8;
+  flex-basis: 40%;
+}
+.summary-item span {
+  color: #333;
+  text-align: right;
+  flex-basis: 60%;
+}
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  opacity: 0;
+  animation: fadeInButtons 0.5s ease-out forwards;
+}
+@keyframes fadeInButtons {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animated-btn {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  transition: all 0.3s;
+  z-index: 1;
+}
+.animated-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  transform: scale(0);
+  transition: transform 0.5s ease-out;
+  z-index: 0;
+}
+.animated-btn:hover::before {
+  transform: scale(1);
+}
+.edit-btn {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+.confirm-btn {
+  background: linear-gradient(135deg, #00b09b, #96c93d);
+}
+.animated-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+}

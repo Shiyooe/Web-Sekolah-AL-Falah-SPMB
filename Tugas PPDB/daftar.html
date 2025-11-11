@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PPDB — Daftar Akun SMK Al-Falah Bandung</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/daftar.css" />
+    <link rel="icon" type="x-icon" href="img/Alfalah.png">
+  </head>
+  <body>
+    <div class="bg-dekorasi">
+      <span class="c1"></span>
+      <span class="c2"></span>
+      <span class="c3"></span>
+    </div>
+
+    <main class="container" role="main">
+      <section class="panel-info">
+        <div class="sekolah-title">SMK Al-Falah Bandung</div>
+
+        <header>
+          <img src="img/Alfalah.png" alt="Logo" class="logo" />
+          <div>
+            <h1>Portal PPDB SMK 2026</h1>
+            <div style="font-size: 13px">
+              Penerimaan Peserta Didik Baru — Online
+            </div>
+          </div>
+        </header>
+        <div class="lead">
+          Silakan isi formulir berikut untuk membuat akun baru. Pastikan data
+          yang Anda masukkan benar.
+        </div>
+      </section>
+      <section class="card">
+        <h2 style="margin: 0 0 14px 0; color: var(--primary)">Daftar Akun</h2>
+
+        <form id="registerForm" autocomplete="on" novalidate>
+          <div>
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="contoh@gmail.com"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Buat username"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="password">Kata Sandi</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Buat kata sandi"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="confirm">Konfirmasi Kata Sandi</label>
+            <input
+              id="confirm"
+              name="confirm"
+              type="password"
+              placeholder="Ulangi kata sandi"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn">Buat Akun</button>
+
+          <div id="msg" class="error" role="alert"></div>
+
+          <div class="footer-note">
+            Sudah punya akun?
+            <a href="../index.html" class="muted-link">Login di sini</a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="daftar.js"></script>
+  </body>
+</html>

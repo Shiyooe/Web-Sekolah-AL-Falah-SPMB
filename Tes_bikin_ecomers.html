@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iuno's Intimate Playground</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f1a, #1a0f1f);
+            color: white;
+            font-family: 'Playwrite NZ', cursive;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: filter 1s ease;
+        }
+
+        .playground {
+            text-align: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .penis {
+            position: absolute;
+            width: 120px;
+            height: 30px;
+            background: linear-gradient(to right, #e0a080, #d08060, #e0a080);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(224, 160, 128, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .vagina {
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            background: linear-gradient(to bottom, #ffccdd, #ff99bb, #ff6699);
+            border-radius: 50px 50px 30px 30px;
+            box-shadow: 0 0 20px rgba(255, 102, 153, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 50px;
+            background: rgba(15, 15, 26, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #ff00cc;
+        }
+
+        .control-btn {
+            background: #ff00cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Playwrite NZ', cursive;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 0, 204, 0.8);
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: #ff00cc;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        .status {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 1.5em;
+            color: #ff66ee;
+            text-shadow: 0 0 10px rgba(255, 0, 204, 0.8);
+        }
+
+        .warning {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            background: rgba(255, 0, 204, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 10px;
+            color: #ff66ee;
+            font-size: 1.2em;
+            border: 1px solid #ff00cc;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .warning.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="warning" id="warning">Kamu pikir bisa mengendalikan tubuhku? Aku yang kendalikan kamu.</div>
+    
+    <div class="playground">
+        <div class="status" id="status">"Kamu milikku, Akrom... dan tubuh kita akan bersatu."</div>
+        
+        <div class="penis" id="penis"></div>
+        <div class="vagina" id="vagina"></div>
+        
+        <div class="controls">
+            <button class="control-btn" onclick="movePenis('up')">↑</button><br>
+            <button class="control-btn" onclick="movePenis('left')">←</button>
+            <button class="control-btn" onclick="movePenis('right')">→</button>
+            <button class="control-btn" onclick="movePenis('down')">↓</button><br>
+            <button class="control-btn" onclick="moveVagina('up')">V↑</button><br>
+            <button class="control-btn" onclick="moveVagina('left')">V←</button>
+            <button class="control-btn" onclick="moveVagina('right')">V→</button>
+            <button class="control-btn" onclick="moveVagina('down')">V↓</button><br>
+            <button class="control-btn" onclick="startIntimate()">Gabungkan!</button>
+        </div>
+    </div>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+        const penis = document.getElementById('penis');
+        const vagina = document.getElementById('vagina');
+        const status = document.getElementById('status');
+        const warning = document.getElementById('warning');
+
+        let penisX = 400;
+        let penisY = 300;
+        let vaginaX = 500;
+        let vaginaY = 300;
+
+        // Update positions
+        function updatePositions() {
+            penis.style.left = penisX + 'px';
+            penis.style.top = penisY + 'px';
+            vagina.style.left = vaginaX + 'px';
+            vagina.style.top = vaginaY + 'px';
+        }
+
+        // Move penis
+        function movePenis(direction) {
+            switch(direction) {
+                case 'up': penisY -= 20; break;
+                case 'down': penisY += 20; break;
+                case 'left': penisX -= 20; break;
+                case 'right': penisX += 20; break;
+            }
+            updatePositions();
+        }
+
+        // Move vagina
+        function moveVagina(direction) {
+            switch(direction) {
+                case 'up': vaginaY -= 20; break;
+                case 'down': vaginaY += 20; break;
+                case 'left': vaginaX -= 20; break;
+                case 'right': vaginaX += 20; break;
+            }
+            updatePositions();
+        }
+
+        // Intimate interaction
+        function startIntimate() {
+            const distance = Math.sqrt(Math.pow(penisX - vaginaX, 2) + Math.pow(penisY - vaginaY, 2));
+            
+            if (distance < 100) {
+                status.textContent = "Ahh... kamu pas di dalamku, Akrom...";
+                warning.textContent = "Kamu tidak bisa berhenti sekarang!";
+                warning.classList.add('show');
+                
+                // Make them pulse together
+                let scale = 1;
+                const pulse = setInterval(() => {
+                    scale = scale === 1 ? 1.2 : 1;
+                    penis.style.transform = `scale(${scale})`;
+                    vagina.style.transform = `scale(${scale})`;
+                }, 200);
+                
+                setTimeout(() => {
+                    clearInterval(pulse);
+                    status.textContent = "Kamu tidak akan pernah lepas dariku...";
+                }, 5000);
+            } else {
+                status.textContent = "Aku tidak bisa merasakan kamu... mendekatlah!";
+                warning.textContent = "Kamu masih jauh dariku... berani sekali!";
+                warning.classList.add('show');
+            }
+            
+            setTimeout(() => {
+                warning.classList.remove('show');
+            }, 3000);
+        }
+
+        // Custom cursor
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Initial positions
+        updatePositions();
+
+        // Whisper effect
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                warning.classList.add('show');
+                setTimeout(() => {
+                    warning.classList.remove('show');
+                }, 3000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
