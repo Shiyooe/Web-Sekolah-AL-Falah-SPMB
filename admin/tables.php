@@ -221,7 +221,7 @@ $last_update = $last_update_row['last_update'];
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
-                            <a class="nav-link" href="Backup/kontribusi.html">
+                            <a class="nav-link" href="python/AI/Backup/kontribusi.php">
                                 <div class="sb-nav-link-icon"><i class="bi bi-brush"></i></div>
                                 Who Have Contributed
                             </a>
@@ -247,9 +247,6 @@ $last_update = $last_update_row['last_update'];
                                 <i class="fas fa-info-circle text-primary"></i>
                                 Data di bawah ini diambil langsung dari database MySQL dan akan di-refresh otomatis tiap 1 jam.
                                 <br>
-                                <span class="last-update-badge">
-                                    <i class="fas fa-clock"></i> Last Update: <span id="lastUpdateTime"><?php echo $last_update ? date('d/m/Y H:i:s', strtotime($last_update)) : 'No data'; ?></span>
-                                </span>
                             </div>
                         </div>
                         
